@@ -1,7 +1,14 @@
 --https://v3rmillion.net/showthread.php?tid=1037389&pid=7316923#pid7316923
+function randomstr()
+	local str = ""
+	for i = 7,math.random(10,20) do
+		str = str..string.char(math.random(97,122))
+	end
+	return str
+end
 function check(plr)
-	if v and v.Name == "the_wagwoner" then
-		v.Name = "notthe_wagwoner"
+	if v and v.Name == "the_wagoner" then
+		v.Name = "notthe_wagoner"..randomstr()
 	end
 end
 for _,v in pairs(game:GetService("Players"):GetPlayers()) do
