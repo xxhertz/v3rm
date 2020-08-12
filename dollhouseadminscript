@@ -1,4 +1,4 @@
---
+--https://v3rmillion.net/showthread.php?tid=1037389&pid=7316923#pid7316923
 function check(plr)
 	if v and v.Name == "the_wagwoner" then
 		v.Name = "notthe_wagwoner"
