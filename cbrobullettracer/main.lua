@@ -8,9 +8,6 @@ local old = mt.__namecall
 local lp = game:GetService("Players").LocalPlayer
 local rs = game:GetService("RunService").RenderStepped
 local lasthittick = tick()
-local this = script
-setreadonly(mt, false)
-
 function createBeam(p1, p2)
 	local beam = Instance.new("Part", workspace)
 	beam.Anchored = true
@@ -22,6 +19,7 @@ function createBeam(p1, p2)
 	return beam
 end
 
+setreadonly(mt, false)
 mt.__namecall = newcclosure(function(self, ...)
 	local args = {...}
 	if getnamecallmethod() == "FireServer" and self.Name == "HitPart" and tick() - lasthittick > 0.005 then
@@ -37,3 +35,4 @@ mt.__namecall = newcclosure(function(self, ...)
 	end
 	return old(self, ...)
 end)
+setreadonly(mt, true)
