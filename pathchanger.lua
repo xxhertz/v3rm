@@ -15,7 +15,7 @@ end
 
 --[[
 	vanilla lua:
-	function string.split(inputstr, sep)
+	function string.split(inputstr, sep) --please note this function does not work on multiple of the seperator back to back
 		if sep == nil then
 			sep = "%s"
 		end
