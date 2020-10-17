@@ -1,17 +1,22 @@
 function changeName(ins)
+	if ins == Game then
+		return "game"
+	end
 	local tpath = ins:GetFullName():split(".")
-	local path = "game:GetService(\""..tpath[1].."\")"
+	local apath = "game:GetService(\""..tpath[1].."\")"
+	if ins == workspace then
+		apath = "workspace"
+	end
 	for i = 2, #tpath do
 		local _, a = string.gsub(tpath[i], " ", " ")
-		if a > 0 then
-			path = path.."[\""..tpath[i].."\"]"
+		if a > 0 or tonumber(tpath[i]) then
+			apath = apath.."[\""..tpath[i].."\"]"
 		else
-			path = path.."."..tpath[i]
+			apath = apath.."."..tpath[i]
 		end
 	end
-	return path
+	return apath
 end
-
 
 --[[
 	vanilla lua:
