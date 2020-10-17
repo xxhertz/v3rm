@@ -1,15 +1,16 @@
 function changeName(ins)
-	if ins == Game then
-		return "game"
-	end
+    if ins == game then
+        return "game"
+    end
 	local tpath = ins:GetFullName():split(".")
 	local apath = "game:GetService(\""..tpath[1].."\")"
 	if ins == workspace then
-		apath = "workspace"
-	end
+	    apath = "workspace"
+    end
 	for i = 2, #tpath do
 		local _, a = string.gsub(tpath[i], " ", " ")
-		if a > 0 or tonumber(tpath[i]) then
+		local _, b = string.gsub(string.sub(tpath[i], 1, 1), "[0-9]", "[0-9]")
+		if a > 0 or b > 0 then
 			apath = apath.."[\""..tpath[i].."\"]"
 		else
 			apath = apath.."."..tpath[i]
