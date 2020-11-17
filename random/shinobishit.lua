@@ -57,6 +57,7 @@ while wait() do
        wait()
        rconsoleprint('@@LIGHT_RED@@')
        rconsoleprint('[Client] Failed | joining a new game attempting to start again\n')
+      queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/xxhertz/v3rm/master/random/shinobishit.lua", true))
        game:GetService("TeleportService"):Teleport(4616652839)
    end
 end
